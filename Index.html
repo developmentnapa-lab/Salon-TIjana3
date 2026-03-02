@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kozmetički Salon Tijana | Zagreb</title>
+    <meta name="description" content="Kozmetički Salon Tijana u Zagrebu - Frižere, manikura, pedikura, tretmani lica, sminkanje. Zakazite termin: 063 590 569">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS Variables - Rose/Pink Theme */
+        :root {
+            --primary-rose: #e8a4a4;
+            --secondary-pink: #d4a5a5;
+            --accent-gold: #c5a059;
+            --dark-gray: #2d3748;
+            --medium-gray: #718096;
+            --light-gray: #e2e8f0;
+            --success-green: #48bb78;
+            --cream: #fffaf7;
+            --gradient-primary: linear-gradient(135deg, var(--primary-rose), var(--secondary-pink));
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: var(--cream);
+        }
+
+        /* Header/Navigation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        /* Stats counter */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        /* Social Icons */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: white !important;
+        }
+
+        /* Gallery hover effect */
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        /* Form focus */
+        .form-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+        }
+
+        /* Service card hover effect */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 165, 165, 0.2);
+        }
+
+        /* Service image wrapper */
+        .service-image-wrapper {
+            overflow: hidden;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            height: 200px;
+        }
+        .service-image {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .service-card:hover .service-image {
+            transform: scale(1.1);
+        }
+
+        /* Gallery item hover */
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* Testimonial card hover */
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA button hover */
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 165, 165, 0.3);
+        }
+
+        /* Footer background */
+        footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: transform 0.3s ease;
+        }
+
+        /* Decorative elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fas fa-spa text-3xl text-primary-rose"></i>
+                    <span class="font-bold text-2xl text-gray-800">Kozmetički Salon Tijana</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary-rose font-medium">Početna</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-primary-rose font-medium">Usluge</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary-rose font-medium">O nama</a>
+                    <a href="#gallery" class="nav-link text-gray-700 hover:text-primary-rose font-medium">Galerija</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-primary-rose font-medium">Recenzije</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary-rose font-medium">Kontakt</a>
+                    <a href="tel:+38563590569" class="bg-primary-rose text-white px-6 py-2 rounded-full hover:bg-secondary-pink transition-colors cta-button">
+                        <i class="fas fa-phone mr-2"></i>063 590 569
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-rose focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t fixed inset-y-0 right-0 w-80 z-40 pt-24 px-6 overflow-y-auto">
+            <div class="space-y-4">
+                <a href="#home" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">Početna</a>
+                <a href="#services" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">Usluge</a>
+                <a href="#about" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">O nama</a>
+                <a href="#gallery" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">Galerija</a>
+                <a href="#testimonials" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">Recenzije</a>
+                <a href="#contact" class="block py-3 text-lg font-medium text-gray-700 hover:text-primary-rose border-b border-gray-100">Kontakt</a>
+                <a href="tel:+38563590569" class="block mt-6 text-center bg-primary-rose text-white py-4 rounded-full text-lg font-bold">
+                    <i class="fas fa-phone mr-2"></i>Pozovite: 063 590 569
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="mb-8">
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">
+                            <span class="inline-block">KOZMETIČKI</span>
+                            <span class="inline-block ml-2">SALON TIJANA</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-pink-100 max-w-2xl mx-auto mb-10">
+                            Profesionalne kozmetičke usluge u Zagrebu od 2012. - vaše sanjenje ljepote počinje ovdje
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#contact" class="bg-white text-primary-rose px-8 py-4 rounded-full font-semibold hover:bg-pink-50 transition-all transform hover:-translate-y-1 shadow-lg cta-button">
+                                <i class="fas fa-calendar-check mr-2"></i>Zakažite termin
+                            </a>
+                            <a href="#services" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary-rose transition-all cta-button">
+                                <i class="fas fa-list-ul mr-2"></i>Naše usluge
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Kozmetički Salon Tijana - Luksuzni Interijer u Zagrebu" 
+                             class="w-full h-auto rounded-3xl shadow-2xl object-cover relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="group flex flex-col items-center gap-2">
+                <span class="text-sm font-medium text-gray-500 group-hover:text-white transition-colors">Skrolajte</span>
+                <div class="w-10 h-10 rounded-full border-2 border-gray-300 group-hover:border-white flex items-center justify-center transition-colors">
+                    <i class="fas fa-chevron-down text-gray-400 group-hover:text-white transition-colors"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Naše <span class="text-primary-rose">Usluge</span></h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Kompletan spektar kozmetičkih usluga s najkvalitetnijim proizvodima</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Frizure i šišanje" 
+                             class="service-image">
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-cut text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Frizure i Šisanje</h3>
+                    <p class="text-gray-600 mb-6 text-center">Modni krojevi, moderno šisanje i stilizacija prilagođena vašem tipu lica, kosi i lifestyle-u. Individualne konsultacije.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Kerastase Professional linije</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>L'Oréal Expert seria</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Home care programa</span>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-8 pt-4 border-t border-gray-100">
+                        <span class="text-2xl font-bold text-primary-rose">Od 25 €</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Manikura i pedikura" 
+                             class="service-image">
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-hand-sparkles text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Manikura i Pedikura</h3>
+                    <p class="text-gray-600 mb-6 text-center">Luksuzni tretmani za nokte i stopala sa premium OPI i CND produktima. Klasični, gel, akril i dip powder tehnike.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>OPI & CND profesionalni</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Gel i akril nokti</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Masaža i hidratacija</span>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-8 pt-4 border-t border-gray-100">
+                        <span class="text-2xl font-bold text-primary-rose">Od 15 €</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Tretmani lica" 
+                             class="service-image">
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-face-smile-beam text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Tretmani Lica</h3>
+                    <p class="text-gray-600 mb-6 text-center">Duboko čišćenje, hidratacija, anti-aging i porečenje. Medicinski kozmetološki pristup s najpovoljnijim rezultatima.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Hydra facial</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Radiofrekvencija (RF)</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Mesoterapija bez igle</span>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-8 pt-4 border-t border-gray-100">
+                        <span class="text-2xl font-bold text-primary-rose">Od 45 €</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 service-card">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1487412947147-5ce6a6974c8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Profesionalno sminkanje" 
+                             class="service-image">
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-lips text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Profesionalno Sminkanje</h3>
+                    <p class="text-gray-600 mb-6 text-center">Svadbene, večernje, photo shoot i daily makeup. Koristimo MAC, Charlotte Tilbury i profesionalne airbrush tehnike.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Bridal makeup paketi</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Airbrush tehnika</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Lash lift & tinte</span>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-8 pt-4 border-t border-gray-100">
+                        <span class="text-2xl font-bold text-primary-rose">Od 30 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:items-stretch">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">O <span class="text-primary-rose">Kompaniji</span></h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Kozmetički Salon Tijana osnovan je 2012. godine u Zagrebu. Naš tim od 10 visoko edukiranih kozmetičara redovno pohađa međunarodne kurseve i seminare da bi vam pružili najnovije svjetske trendove. Vjerujemo u individualni pristup - svaki klijent je unikatna priča.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-md flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-award text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Certificirani Stručnjaci</h4>
+                                <p class="text-gray-600">Međunarodno licencirani kozmetičari s dugogodišnjim iskustvem.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-md flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-leaf text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Premium Proizvodi</h4>
+                                <p class="text-gray-600">Koristimo samo sertifikovane, hibridne i organske proizvode.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-md flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-heart text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Personalizovani Pristup</h4>
+                                <p class="text-gray-600">Svaki tretman je prilagođen vašem tipu kože, kosi i stilu.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-md flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-spa text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Luksuzna Sredina</h4>
+                                <p class="text-gray-600">Uživajte u modernom uređenju s besplatnim napitcima i WiFi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center justify-center">
+                        <div class="stat-number" data-target="12">12</div>
+                        <div class="text-gray-600 font-semibold mt-2">Godina Iskustva</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center justify-center">
+                        <div class="stat-number" data-target="10">10</div>
+                        <div class="text-gray-600 font-semibold mt-2">Zaposlenih Stručnjaka</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center justify-center">
+                        <div class="stat-number" data-target="5000">5000</div>
+                        <div class="text-gray-600 font-semibold mt-2">Zadovoljnih Klijenata</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center justify-center">
+                        <div class="stat-number" data-target="25">25</div>
+                        <div class="text-gray-600 font-semibold mt-2">Usluga Ponuđeno</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Naša <span class="text-primary-rose">Galerija</span></h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte naš savremeni interijer i radne stanice</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Glavni salon" 
+                         class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 gallery-img">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="text-white">
+                            <h3 class="text-2xl font-bold mb-2">Glavni Salon</h3>
+                            <p class="text-pink-100">Udobna čekalionica s premium opremom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Frižerske stanice" 
+                         class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 gallery-img">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="text-white">
+                            <h3 class="text-2xl font-bold mb-2">Frižerske Stanice</h3>
+                            <p class="text-pink-100">Ergonomski dizajnirane stolice i ogledala</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Manikur stolica" 
+                         class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 gallery-img">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="text-white">
+                            <h3 class="text-2xl font-bold mb-2">Manikur Staciona</h3>
+                            <p class="text-pink-100">Sterilni uređaji i svježe replaceable instrumenti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Tretman lica" 
+                         class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 gallery-img">
+                    <div class="gallery-overlay absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="text-white">
+                            <h3 class="text-2xl font-bold mb-2">Tretman Lica</h3>
+                            <p class="text-pink-100">Medicinski uređaji za profesionalne rezultate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Što <span class="text-primary-rose">Naši Klijenti</span> Kažu</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Pročitajte iskustva naših zadovoljnih gostiju iz Zagreba i šire</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Najbolji salon u Zagrebu! Frizura koju sam dobila od Tijane je jednostavno nevjerojatna. Svi uvijek pitaju gdje sam se ovako lijepo ostrijegla. Hvala ti puno!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">AM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Ana Marković</h4>
+                            <p class="text-gray-500">Stalna klijentica • Zagreb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Došla sam po manikuru i pedikuru, a otišla sasvim drugačija osoba. Tijana i njen tim su nevjerojatni. Sjedeće WC uređaje su u punom redu, a prijatan i profesionalan tim."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">JP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Jovana Petrović</h4>
+                            <p class="text-gray-500">Stalna klijentica • Split</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Za moj vjenčanski dan odabrala sam Tijanu za sminkanje i frizuru. Izgledala sam besprekorno! Svi su bili oduševljeni. Ako tražite perfekciju, ovo je mjesto."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">MK</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Marija Kostić</h4>
+                            <p class="text-gray-500">Sretna mlada • Rijeka</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Balayage koje sam dobila je najlepše što sam ikada imala. Tijana je stvarno umjetnik. Salon je luxury, a cijene su vrlo konkurentne za kvalitet koji dobijete."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">SD</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Sandra Đorđević</h4>
+                            <p class="text-gray-500">Stalna klijentica • Bosnia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Kod Tijane sam na godinama. Zašto? Zbog konzistentnog kvaliteta, ljubaznosti i profesionalizma. Svaki put napuste salon osjećajući se kao princeza."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">VN</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Vesna Nikić</h4>
+                            <p class="text-gray-500">Stalna klijentica • Slovenia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 testimonial-card">
+                    <div class="flex mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic text-lg leading-relaxed">
+                        "Prvi put sam pokušao sa pedikrom i bio sam jako nervozan. Tim je bio Neverovatno strpljiv i profesionalan. Sada svaka 4-5 sedmice dolazim. Preporuka!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary-rose to-secondary-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">DV</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Darko Vasić</h4>
+                            <p class="text-gray-500">Klijent • Beograd</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kontaktirajte <span class="text-primary-rose">Nas</span></h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Imate pitanja ili želite zakažiti termin? Javite nam se!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Lokacija</h3>
+                            <p class="text-gray-600">Ilica 123<br>10000 Zagreb, Hrvatska</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <i class="fas fa-phone text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Telefon</h3>
+                            <p class="text-gray-600 text-2xl font-bold text-primary-rose">063 590 569</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <i class="fas fa-envelope text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Email</h3>
+                            <p class="text-gray-600">info@salontijana.hr</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-rose to-secondary-pink rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <i class="fas fa-clock text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Radno Vrijeme</h3>
+                            <p class="text-gray-600">Pon-Pet: 08:00-20:00</p>
+                            <p class="text-gray-600">Subota: 09:00-18:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Slika sa hover animacijom -->
+                    <div class="mt-12">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Kozmetički salon Tijana" 
+                             class="w-full h-auto rounded-2xl shadow-lg object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Pošaljite Nam <span class="text-primary-rose">Poruku</span></h3>
+                    <form id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" for="name">Ime i Prezime *</label>
+                                <input type="text" id="name" name="name" required class="w-full p-4 rounded-lg border border-gray-300 form-input">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" for="phone">Broj Telefona *</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full p-4 rounded-lg border border-gray-300 form-input">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" for="email">Email Adresa *</label>
+                                <input type="email" id="email" name="email" required class="w-full p-4 rounded-lg border border-gray-300 form-input">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" for="service">Usluga *</label>
+                                <select id="service" name="service" required class="w-full p-4 rounded-lg border border-gray-300 form-input bg-white">
+                                    <option value="">- Izaberite Uslugu -</option>
+                                    <option value="frizure">Frizure i Šisanje</option>
+                                    <option value="manikur">Manikura i Pedikura</option>
+                                    <option value="tretmani">Tretmani Lica</option>
+                                    <option value="sminkanje">Profesionalno Sminkanje</option>
+                                    <option value="ostalo">Ostalo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label class="block text-gray-700 font-semibold mb-2" for="date">Željeni datum</label>
+                            <input type="date" id="date" name="date" required class="w-full p-4 rounded-lg border border-gray-300 form-input">
+                        </div>
+
+                        <div class="mt-6">
+                            <label class="block text-gray-700 font-semibold mb-2" for="message">Poruka</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-4 rounded-lg border border-gray-300 form-input"></textarea>
+                        </div>
+
+                        <div class="mt-8">
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary-rose to-secondary-pink text-white font-bold py-4 px-6 rounded-full hover:from-secondary-pink hover:to-primary-rose transition-all transform hover:-translate-y-1 shadow-lg cta-button">
+                                <i class="fas fa-paper-plane mr-2"></i>Pošalji Poruku
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-spa text-3xl text-primary-rose"></i>
+                        <span class="font-bold text-2xl">Kozmetički Salon Tijana</span>
+                    </div>
+                    <p class="text-gray-400">Profesionalne kozmetičke usluge u Zagrebu od 2012. Vaše sanjenje ljepote počinje ovdje.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Brzi Linkovi</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>Početna</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>Usluge</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>O nama</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>Galerija</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>Recenzije</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-chevron-right mr-2"></i>Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Kontakt Informacije</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary-rose"></i>
+                            <a href="tel:+38563590569" class="text-gray-400 hover:text-white transition-colors">063 590 569</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary-rose"></i>
+                            <a href="mailto:info@salontijana.hr" class="text-gray-400 hover:text-white transition-colors">info@salontijana.hr</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-rose"></i>
+                            <span class="text-gray-400">Ilica 123, 10000 Zagreb</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary-rose"></i>
+                            <span class="text-gray-400">Pon-Pet: 08:00-20:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Pratite Nas</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center social-icon hover:bg-primary-rose">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center social-icon hover:bg-primary-rose">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center social-icon hover:bg-primary-rose">
+                            <i class="fab fa-pinterest-p text-2xl"></i>
+                        </a>
+                        <a href="https://wa.me/38563590569" class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center social-icon hover:bg-green-500">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-gray-400 mb-2">Osnovano</p>
+                        <p class="text-xl font-bold">2012.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Kozmetički Salon Tijana. Sva prava zadržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Simple counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 50;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const counterSection = document.querySelector('#about');
+        if (counterSection) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounters();
+                    counterObserver.unobserve(counterSection);
+                }
+            }, { threshold: 0.5 });
+            counterObserver.observe(counterSection);
+        }
+
+        // Form submission with validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Basic validation
+            if (!data.name || !data.email || !data.phone || !data.service) {
+                alert('Molimo vas da popunite sva obavezna polja (*)');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Molimo unesite ispravan email format');
+                return;
+            }
+
+            if (data.phone && !/^\d{8,15}$/.test(data.phone.replace(/\D/g, ''))) {
+                alert('Molimo unesite ispravan format broja telefona (8-15 cifara)');
+                return;
+            }
+
+            // Simulate form submission
+            console.log('Form submitted:', data);
+            alert('Hvala! Vaša poruka je uspješno poslata. Javićemo vam se uskoro.');
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set minimum date to today for date picker
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
